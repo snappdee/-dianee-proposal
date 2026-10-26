@@ -45,7 +45,7 @@ form.addEventListener("submit", async (event) => {
     if (!response.ok) throw new Error(result.error || "Something went wrong.");
     document.getElementById("shareLink").value = result.link;
     successPanel.hidden = false;
-    statusBox.textContent = "Your proposal link has been created and emailed.";
+    statusBox.textContent = "Your proposal link is ready! Copy it and send it to Dianee.";
     statusBox.className = "status";
     successPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
   } catch (error) {
