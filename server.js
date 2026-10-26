@@ -106,7 +106,11 @@ app.post("/api/proposals", upload.single("background"), async (req, res) => {
     writeProposals(rows);
 
     const link = `${BASE_URL}/p/${token}`;
-    const transport = mailer();
+    return res.json({
+  success: true,
+  link: link,
+  message: "Your proposal is ready! Copy the link and send it to Dianee."
+});
     await transport.sendMail({
       from: process.env.EMAIL_FROM,
       to: partnerEmail,
