@@ -61,7 +61,7 @@ function mailer() {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          from: message.from,
+          from: "Dianee Proposal <onboarding@resend.dev>",
           to: message.to,
           reply_to: message.replyTo,
           subject: message.subject,
