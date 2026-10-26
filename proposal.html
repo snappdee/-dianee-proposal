@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A little question for you 💗</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="proposal-page">
+  <div class="proposal-background" id="proposalBackground"></div>
+  <div class="grain"></div>
+  <main class="proposal-shell">
+    <div class="floating-heart heart-a">♡</div><div class="floating-heart heart-b">♥</div><div class="floating-heart heart-c">♡</div>
+    <section class="proposal-card" id="proposalCard">
+      <div class="tiny-label">A LITTLE SOMETHING JUST FOR YOU</div>
+      <div class="envelope-icon">💌</div>
+      <p class="kicker" id="greeting">Someone has something to ask you…</p>
+      <h1 id="headline">Dear <em>you,</em></h1>
+      <div class="divider"><span>✦</span><span>♡</span><span>✦</span></div>
+      <p class="proposal-message" id="message">Some moments deserve their own little bit of magic.</p>
+      <button id="revealButton" class="primary-button reveal-button">Open your heart's letter <span>♡</span></button>
+      <div id="questionArea" hidden>
+        <p class="question-kicker">THE QUESTION I'VE BEEN WAITING TO ASK</p>
+        <h2 id="question">Will you marry me?</h2>
+        <p class="subquestion">Take your time, and choose what feels right for you.</p>
+        <div class="answer-buttons">
+          <button id="yesButton" class="yes-button">Yes, a thousand times yes! 💍</button>
+          <button id="noButton" class="no-button">No, thank you</button>
+        </div>
+      </div>
+      <div id="resultArea" hidden aria-live="polite"></div>
+      <p class="signature">With love, <span id="signatureName">someone special</span></p>
+    </section>
+    <p class="bottom-note">A small page for a very big feeling <span>♥</span></p>
+  </main>
+  <script src="/proposal.js"></script>
+</body>
+</html>
