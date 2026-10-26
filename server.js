@@ -52,15 +52,31 @@ function escapeHtml(value = "") {
   }[ch]));
 }
 function mailer() {
-  if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS || !process.env.EMAIL_FROM) {
-    throw new Error("Email is not configured yet. Add your SMTP settings to the .env file.");
-  }
-  return nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT || 587),
-    secure: String(process.env.SMTP_SECURE || "false").toLowerCase() === "true",
-    auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS }
-  });
+  return {
+    sendMail: async (message) => {
+      const response = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${process.env.RESEND_API_KEY}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          from: message.from,
+          to: message.to,
+          reply_to: message.replyTo,
+          subject: message.subject,
+          text: message.text,
+          html: message.html
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`Email failed: ${await response.text()}`);
+      }
+
+      return response.json();
+    }
+  };
 }
 
 app.post("/api/proposals", upload.single("background"), async (req, res) => {
